@@ -1,0 +1,89 @@
+// LCS using DP and also print the LCS string 
+
+/*
+#include <iostream>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+
+int max(int a,int b)
+{
+	return (a>b?a:b);
+}
+
+
+
+int LCS(char *str1, char *str2, int m,int n)
+{
+	
+	int lcs[50][50];
+
+
+	for(int i=0;i<=m;i++)
+	  {
+		  for(int j=0;j<=n;j++)
+		  {
+			   if(i==0||j==0)
+				lcs[i][j]=0;
+	       else if(str1[i-1]==str2[j-1])
+			   lcs[i][j]=lcs[i-1][j-1]+1;
+		   else
+			   lcs[i][j]=max(lcs[i-1][j],lcs[i][j-1]);
+	   
+		  }
+	}
+	
+	int index = lcs[m][n];
+	
+
+
+	// print the LCS
+
+	char lcsstring [50] = {0};
+	lcsstring[index]='\0';
+
+	int i=m,j=n;
+	while(i>0&&j>0)
+	{
+		if(str1[i-1]==str2[j-1])
+		{
+			lcsstring[index-1]=str1[i-1];
+		    i--;j--;index--;
+		}
+
+		else if(lcs[i-1][j]>lcs[i][j-1])
+			i--;
+		else
+			j--;
+
+	}
+
+
+ cout<<"the lcs string is "<<lcsstring<<endl;
+
+ return lcs[m][n];
+
+}
+
+
+
+
+int main()
+{
+	char str1[]="AGGTAB";
+	char str2[]="GXTXAYB";
+
+	int m=strlen(str1);
+	int n=strlen(str2);
+
+	cout<<"the max length LCS :"<<LCS(str1,str2,m,n);
+
+	getchar();
+
+	return 0;
+
+}
+
+*/
