@@ -1,0 +1,49 @@
+// DP Matrix chain multiplication
+
+// the Implementation logic is not clear
+
+#include<iostream>
+
+using namespace std;
+
+int Matrixchain(int matrixarr[],int n)
+{
+	int M[10][10];
+
+	int L,i,j,k,q;
+
+	for(int i=0;i<n;i++)
+		M[i][i]=0;
+
+	for(L=2;L<n;L++)
+	{
+		for(i=1;i<=n-L+1;i++)
+		{
+			j=i+L-1;
+		     M[i][j]=INT_MAX;
+		for(k=i;k<=j-1;k++)
+		{
+			q=M[i][k]+M[k+1][j]+ matrixarr[i-1]* matrixarr[k]* matrixarr[j];
+			if(q<M[i][j])
+				M[i][j]=q;
+		}
+		}
+	}
+
+		
+
+  return M[1][n-1];
+}
+
+int main()
+{
+	int arr[] = {1,2,3,4};
+
+	int size= sizeof(arr)/sizeof(arr[0]);
+
+	cout<<"the min multiplication is :"<<Matrixchain(arr,size);
+
+		getchar();
+
+	return 0;
+}
