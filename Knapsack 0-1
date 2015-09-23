@@ -2,7 +2,7 @@
 #include <iostream>
 #include<stdio.h>
 
-
+// K[][] table formation is not clear
 
 using namespace std;
 
